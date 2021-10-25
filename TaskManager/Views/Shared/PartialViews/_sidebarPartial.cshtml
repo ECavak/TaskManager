@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<User> signInManager
+@inject UserManager<User> userManager
+
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <!-- Add icons to the links using the .nav-icon class
+    with font-awesome or any other icon font library -->
+
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <li class="nav-item">
+                        <a href="/User/ToDoList" class="nav-link">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                To Do List
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/User/Index" class="nav-link">
+                            <i class="nav-icon far fa-plus-square"></i>
+                            <p>
+                                To Do List Create
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Home/LogOut" class="nav-link">
+                            <i class="nav-icon far fa-minus-square"></i>
+                            <p>
+                                Logout
+                            </p>
+                        </a>
+                    </li>
+                }
+                else
+                {
+
+                    <li class="nav-item">
+                        <a href="/Home/Login" class="nav-link">
+                            <i class="nav-icon far fa-plus-square"></i>
+                            <p>
+                                Login
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Home/Create" class="nav-link">
+                            <i class="nav-icon far fa-minus-square"></i>
+                            <p>
+                                Sign in
+                            </p>
+                        </a>
+                    </li>
+                }
+            </ul>
+
+
+
+            
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

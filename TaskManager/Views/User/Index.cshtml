@@ -1,0 +1,88 @@
+﻿@model TaskManager.WebUI.Models.TaskVM
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-wrapper kanban">
+    <section class="content-header">
+        <div class="container">
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="ion ion-clipboard mr-1"></i>
+                        Create To Do
+                    </h3>
+
+                </div>
+                <!-- /.card-header -->
+
+                <div class="card-body">
+                    <!-- Date -->
+                    <form asp-action="CreateToDo" method="post">
+                        <div class="form-group d-none">
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" asp-for="task.userMail" value="@ViewBag.user" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group d-none">
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" asp-for="task.userID" value="@ViewBag.userId" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Task Name</label>
+                            <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" asp-for="task.TaskName" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Date and time -->
+                        <div class="form-group">
+                            <label>Task Description</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control datetimepicker-input" asp-for="task.TaskDescription" />
+                                <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /.form group -->
+                        <!-- /.form group -->
+                        <!-- Date and time range -->
+                        <!-- /.form group -->
+                        <!-- Date and time range -->
+                        <div class="form-group">
+                            <label>Task Time</label>
+
+                            <select asp-for="task.State" class="form-select" asp-items="@Html.GetEnumSelectList<TaskManager.Core.Enum.TaskSchedule>()">
+                            </select>
+
+                        </div>
+                        <div class="card-footer ">
+                            <button type="submit" class="btn btn-primary float-right"><i class="fas fa-plus"></i> Add item</button>
+                        </div>
+                    </form>
+                    <!-- /.form group -->
+                </div>
+
+                <!-- /.card-body -->
+            </div>
+
+
+        </div>
+    </section>
+</div>
+                    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+
